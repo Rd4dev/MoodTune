@@ -19,7 +19,7 @@ document.querySelectorAll(".mood").forEach(card=>{
 
 async function loadSong() {
   try {
-    const response = await fetch(`http://localhost:8080/songs/recommend/${currentMood}`);
+    const response = await fetch(`/songs/recommend/${currentMood}`);
     const song = await response.json();
 
     video.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1&mute=1`;
