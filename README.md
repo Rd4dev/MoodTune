@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/15edfb15-2c9e-4fbc-8b68-544d85884a3e
 
 ### Notes
 
-1. **YouTube Playback:** Due to copyright restrictions, embedded YouTube videos may not play on the hosted version. Users may need to view them directly on YouTube.
+1. **YouTube Playback:** Due to copyright restrictions, at times embedded YouTube videos may not play on the hosted version. In that case users can still view them directly on YouTube.
 2. **Current MVP:**
 
     * Simple mood selection-based endpoint
