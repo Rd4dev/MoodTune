@@ -23,6 +23,9 @@ async function loadSong() {
     const song = await response.json();
 
     video.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1&mute=1`;
+    video.onerror = () => {
+        window.open(`https://www.youtube.com/watch?v=${song.videoId}`, "_blank");
+    }
   } catch (e) {
     alert("Unable to load song");
   }
