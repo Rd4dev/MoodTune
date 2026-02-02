@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MoodTunes 🎵</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="home">
+    <h1>MoodTunes 🎵</h1>
+    <p>How are you feeling?</p>
+    <div class="grid">
+        <div class="mood happy" data-mood="happy">😀<span>Happy</span></div>
+        <div class="mood love" data-mood="love">😍<span>Love</span></div>
+        <div class="mood sad" data-mood="sad">😢<span>Sad</span></div>
+        <div class="mood dance" data-mood="dance">💃<span>Dance</span></div>
+        <div class="mood feelgood" data-mood="feel-good">😇<span>Feel Good</span></div>
+        <div class="mood motivation" data-mood="motivation">🔥<span>Motivation</span></div>
+    </div>
+</div>
+
+<div id="player">
+    <div id="moodEmoji">😀</div>
+    <div id="moodTitle">Happy Vibes</div>
+    <iframe id="video" allow="autoplay"></iframe>
+    <div class="controls">
+        <button id="newSong">Next Song</button>
+        <button id="back">Change Mood</button>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

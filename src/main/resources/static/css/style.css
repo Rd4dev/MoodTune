@@ -1,0 +1,337 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Poppins,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#1e1e2f,#2b2b45);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* ---------------- HOME ---------------- */
+
+#home{
+  text-align:center;
+}
+
+h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+p{
+  opacity:0.8;
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,110px);
+  gap:30px;
+  justify-content:center;
+}
+
+.mood{
+  background:rgba(255,255,255,0.08);
+  border-radius:22px;
+  padding:25px 0;
+  font-size:48px;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  position:relative;
+}
+
+.mood span{
+  display:block;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.mood:hover{
+  transform:scale(1.1);
+  background:rgba(255,255,255,0.18);
+}
+
+/* ---------- HAPPY CONFETTI ---------- */
+
+.happy{
+  overflow:hidden;
+}
+
+.happy::before,
+.happy::after{
+  content:"";
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:red;
+  top:-10px;
+  left:20%;
+  border-radius:50%;
+  opacity:0;
+}
+
+.happy:hover::before{
+  animation:confetti 0.8s linear infinite;
+  opacity:1;
+}
+
+.happy:hover::after{
+  left:70%;
+  background:yellow;
+  animation:confetti 0.8s linear infinite;
+  opacity:1;
+}
+
+/* extra strips */
+.happy span::before,
+.happy span::after{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:12px;
+  background:#00ffff;
+  top:-10px;
+  opacity:0;
+}
+
+.happy:hover span::before{
+  left:35%;
+  animation:confetti 0.6s linear infinite;
+  opacity:1;
+}
+
+.happy:hover span::after{
+  left:55%;
+  background:#ff4f8b;
+  animation:confetti 0.5s linear infinite;
+  opacity:1;
+}
+
+@keyframes confetti{
+  0%{
+    transform:translateY(0) rotate(0deg);
+  }
+  100%{
+    transform:translateY(120px) rotate(360deg);
+  }
+}
+
+/* ---------- LOVE HEARTBEAT ---------- */
+
+.love:hover{
+  animation:heartbeat 0.8s infinite;
+}
+
+@keyframes heartbeat{
+  0%{transform:scale(1)}
+  25%{transform:scale(1.25)}
+  40%{transform:scale(1)}
+  60%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+
+/* ---------- CRY TEARS LOOP ---------- */
+
+.sad::after,
+.sad::before{
+  content:"💧";
+  position:absolute;
+  top:35px;
+  opacity:0;
+}
+
+.sad::after{ left:40%; }
+.sad::before{ left:55%; }
+
+.sad:hover::after{
+  animation:tear 1.8s infinite;
+}
+.sad:hover::before{
+  animation:tear 1.8s infinite 0.7s;
+}
+
+@keyframes tear{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(25px);opacity:0}
+}
+
+/* ---------- DANCE ---------- */
+
+.dance:hover{
+  animation:shake 0.4s infinite;
+}
+
+@keyframes shake{
+  0%{transform:rotate(0)}
+  25%{transform:rotate(6deg)}
+  50%{transform:rotate(-6deg)}
+  75%{transform:rotate(6deg)}
+  100%{transform:rotate(0)}
+}
+
+/* ---------- FEEL GOOD (HALO) ---------- */
+
+.feelgood::after{
+  content:"";
+  position:absolute;
+  width:55px;
+  height:20px;
+  border:3px solid gold;
+  border-radius:50%;
+  top:5px;
+  left:50%;
+  transform:translateX(-50%);
+  opacity:0;
+}
+
+.feelgood:hover::after{
+  opacity:1;
+  animation:halo 0.7s linear infinite alternate;
+}
+
+@keyframes halo{
+  from{transform: translateX(-50%) translateY(0%) rotate(0deg)}
+  to{transform: translateX(-50%) translateY(60%) rotate(0deg)}
+}
+
+/* ---------- MOTIVATION BURNING CARD ---------- */
+
+.motivation{
+  position:relative;
+  overflow:hidden;
+}
+
+/* fire glow layer */
+.motivation::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 50% 80%, #ffae00, transparent 60%),
+    radial-gradient(circle at 30% 90%, #ff4d00, transparent 65%),
+    radial-gradient(circle at 70% 90%, #ff7700, transparent 65%);
+  opacity:0;
+  filter:blur(40px);
+}
+
+/* flame wave */
+.motivation::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    0deg,
+    transparent,
+    rgba(255,120,0,0.4),
+    transparent
+  );
+  opacity:0;
+}
+
+/* activate fire */
+.motivation:hover::before{
+  opacity:1;
+  animation:fireGlow 1.5s infinite alternate;
+}
+
+.motivation:hover::after{
+  opacity:1;
+  animation:fireWave 1.5s infinite linear;
+}
+
+.motivation:hover{
+  box-shadow:
+    0 0 20px #ff6a00,
+    0 0 40px #ff4500,
+    0 0 80px #ffae00;
+}
+
+/* ---------- FIRE ANIMATIONS ---------- */
+
+@keyframes fireGlow{
+  from{
+    transform:scale(0);
+  }
+  to{
+    transform:scale(1.2);
+  }
+}
+
+@keyframes fireWave{
+  from{
+    background-position:0 100%;
+  }
+  to{
+    background-position:0 -100%;
+  }
+}
+
+/* ---------- SOFTER FIRE + READABLE TEXT ---------- */
+
+.motivation:hover{
+  box-shadow:
+    0 0 10px #ff7a00,
+    0 0 20px #ff5a00;
+}
+
+/* Slight transparency */
+.motivation:hover::before{
+  opacity:0.6;
+}
+
+.motivation:hover::after{
+  opacity:0.5;
+}
+
+/* ---------------- PLAYER ---------------- */
+
+#player{
+  display:none;
+  text-align:center;
+  width:90vw;
+  max-width:700px;
+}
+
+#moodEmoji{
+  font-size:60px;
+}
+
+#moodTitle{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+iframe{
+  width:100%;
+  height:320px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+  margin-bottom:20px;
+}
+
+.controls{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+
+.controls button{
+  padding:12px 22px;
+  border-radius:10px;
+  background:white;
+  color:black;
+  border:none;
+  cursor:pointer;
+}
+
+.controls button:hover{
+  background:#fadbb1;
+}
